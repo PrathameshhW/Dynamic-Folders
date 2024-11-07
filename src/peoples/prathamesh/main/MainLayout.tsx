@@ -1,13 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import { getData } from "./MainApi";
+import { ReactNode } from "react";
 
-const MainLayout = () => {
-  const { data: info } = useQuery({
-    queryKey: ["data"],
-    queryFn: getData,
-  });
-
-  return <div>{info?.map((item) => item.name)}</div>;
+const MainLayout = ({ children }: { children: ReactNode }) => {
+  return <>{children}</>;
 };
 
 export default MainLayout;
