@@ -84,7 +84,7 @@ const RegisterLayout = (props: IRegisterLayoutProps) => {
         </Card>
       </div>
 
-      <div className="h-screen w-1/2 hidden sm:block">
+      <div className="h-screen w-1/2 hidden md:block">
         <img
           src={RegisterImage}
           alt=""

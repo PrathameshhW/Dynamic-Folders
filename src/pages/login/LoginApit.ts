@@ -6,6 +6,7 @@ export interface LoginData {
   email: string;
   password: string;
   token: string;
+  profileImage: string;
 }
 
 export const loginUser = async (): Promise<LoginData[]> => {

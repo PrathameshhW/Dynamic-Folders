@@ -69,7 +69,7 @@ const LoginLayout = (props: ILoginLayoutProps) => {
           </form>
         </Card>
       </div>
-      <div className="h-screen w-1/2 sm:block hidden">
+      <div className="h-screen w-1/2 md:block hidden">
         <img src={LoginImage} alt="" className="w-full h-full object-cover" />
       </div>
     </div>

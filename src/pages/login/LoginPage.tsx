@@ -48,14 +48,19 @@ const LoginPage = () => {
         (user) => user.email === val.email && user.password === val.password
       );
 
-      if (user) {
-        localStorage.setItem("token", user.token);
-        navigate("/dashboard");
-        toast.success("User logged in successfully");
+      if (!user) {
+        toast.error("User not found");
+        return;
       }
+
+      toast.success("User logged in successfully");
+      localStorage.setItem("token", user.token);
+      navigate("/");
     } catch (error) {
       toast.error("Something went wrong");
     }
+
+    setButtonLoading(false);
   };
 
   const onCreateAccountClick = () => {

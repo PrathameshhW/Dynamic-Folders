@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import DashboardPage from "../pages/dashboard/DashboardPage";
 import RegisterPage from "../pages/register/RegisterPage";
 import AuthWrapper from "./AuthWrapper";
 
@@ -17,8 +18,14 @@ export const Router = createBrowserRouter([
     errorElement: <h1>Not Found</h1>,
     children: [
       {
-        path: "/dashboard",
-        element: <h1>Dashboard</h1>,
+        path: "",
+        element: <DashboardPage />,
+        children: [
+          {
+            path: "/dashboard1",
+            element: <div>Dashboard1</div>,
+          },
+        ],
       },
     ],
   },
