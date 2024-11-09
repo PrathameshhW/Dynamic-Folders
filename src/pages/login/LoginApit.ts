@@ -8,7 +8,7 @@ export interface LoginData {
   token: string;
 }
 
-export const login = async (): Promise<LoginData[]> => {
+export const loginUser = async (): Promise<LoginData[]> => {
   const res = await BaseInstance.get("/api/users");
   return res.data;
 };

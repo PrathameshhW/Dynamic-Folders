@@ -16,7 +16,7 @@ const isAuthRoute =
 function App() {
   return (
     <>
-      <Suspense fallback={<span>Loading...</span>}>
+      <Suspense fallback={<></>}>
         <QueryClientProvider client={queryClient}>
           {isAuthRoute ? (
             <RouterProvider router={Router} />

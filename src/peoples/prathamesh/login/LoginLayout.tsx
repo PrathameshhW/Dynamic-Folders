@@ -9,12 +9,14 @@ import {
 } from "@mantine/core";
 
 import { ILoginLayoutProps } from "../../../pages/login/LoginDto";
+import LoginImage from "../media/login/login.jpg";
 
 const LoginLayout = (props: ILoginLayoutProps) => {
-  const { form, onCreateAccountClick, handleOnLoginSubmit } = props;
+  const { form, onCreateAccountClick, handleOnLoginSubmit, buttonLoading } =
+    props;
 
   return (
-    <>
+    <div className="flex px-4 sm:px-0 sm:flex-row w-full">
       <div className="h-screen flex flex-col items-center justify-center w-full md:w-1/2">
         <div>
           <Title ta="center">Welcome back!</Title>
@@ -44,6 +46,7 @@ const LoginLayout = (props: ILoginLayoutProps) => {
             })}
           >
             <TextInput
+              required
               label="Email"
               placeholder="you@mantine.dev"
               {...form.getInputProps("email")}
@@ -51,6 +54,7 @@ const LoginLayout = (props: ILoginLayoutProps) => {
             />
 
             <PasswordInput
+              required
               label="Password"
               placeholder="Your password"
               mt="md"
@@ -59,17 +63,16 @@ const LoginLayout = (props: ILoginLayoutProps) => {
               key={form.key("password")}
             />
 
-            <Button fullWidth mt="xl" type="submit">
+            <Button fullWidth mt="xl" type="submit" loading={buttonLoading}>
               Sign in
             </Button>
-
-            {/* <Dialog opened={true}>
-              <Text>Hello world</Text>
-            </Dialog> */}
           </form>
         </Card>
       </div>
-    </>
+      <div className="h-screen w-1/2 sm:block hidden">
+        <img src={LoginImage} alt="" className="w-full h-full object-cover" />
+      </div>
+    </div>
   );
 };
 

@@ -1,9 +1,10 @@
 import { isNotEmpty, useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
-import { lazy, useEffect } from "react";
+import { lazy, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { envConfig } from "../../Config/env.config";
-import { login } from "./LoginApit";
+import { loginUser } from "./LoginApit";
 import { ILoginLayoutProps } from "./LoginDto";
 
 const LoginLayout = lazy(
@@ -18,11 +19,13 @@ const LoginFormInitialValues = {
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const { data: usersData, refetch: LoginUser } = useQuery({
+  const { refetch: LoginUser } = useQuery({
     queryKey: ["login"],
-    queryFn: login,
+    queryFn: loginUser,
     enabled: false,
   });
+
+  const [buttonLoading, setButtonLoading] = useState(false);
 
   const form = useForm({
     mode: "uncontrolled",
@@ -37,6 +40,7 @@ const LoginPage = () => {
     email: string;
     password: string;
   }) => {
+    setButtonLoading(true);
     try {
       const res = await LoginUser();
 
@@ -47,8 +51,11 @@ const LoginPage = () => {
       if (user) {
         localStorage.setItem("token", user.token);
         navigate("/dashboard");
+        toast.success("User logged in successfully");
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
   };
 
   const onCreateAccountClick = () => {
@@ -66,6 +73,7 @@ const LoginPage = () => {
     form,
     onCreateAccountClick,
     handleOnLoginSubmit,
+    buttonLoading,
   };
 
   return <LoginLayout {...props} />;
