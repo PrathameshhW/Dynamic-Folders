@@ -4,7 +4,7 @@ import { barChartData, data } from "./data";
 const MainDashbaordLayout = () => {
   return (
     <div className="w-full flex flex-wrap flex-row">
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <AreaChart
           h={300}
           data={data}
@@ -20,7 +20,7 @@ const MainDashbaordLayout = () => {
         />
       </div>
 
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <CompositeChart
           h={300}
           data={data}
@@ -37,7 +37,7 @@ const MainDashbaordLayout = () => {
         />
       </div>
 
-      <div className="w-1/2 mt-16">
+      <div className="w-full md:w-1/2 mt-16">
         <BarChart
           h={300}
           data={barChartData}
