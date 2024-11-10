@@ -23,7 +23,7 @@ const MainDashbaordLayout = lazy(
 
 const sideMenuItems = [
   { label: "Dashboard", link: "/", icon: "", type: "MENU" },
-  { label: "My Users", link: "/user_list", icon: "", type: "MENU" },
+  { label: "All Users", link: "/user_list", icon: "", type: "MENU" },
 
   { label: "Settings", link: "/settings", icon: "", type: "CONFIG" },
   { label: "Logout", link: "/login", icon: "", type: "CONFIG" },

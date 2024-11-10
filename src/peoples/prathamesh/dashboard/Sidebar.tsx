@@ -23,9 +23,9 @@ const NavbarLink = ({
     <UnstyledButton
       onClick={onClick}
       data-active={active || undefined}
-      className={`flex flex-row w-full hover:bg-[#b4b3b3]/30 items-center p-4 gap-x-4 h-[50px] text-xl transition-all ${
+      className={`flex flex-row w-full hover:bg-[#b4b3b3]/30 items-center p-4 gap-x-4 h-[45px]  transition-all ${
         active && link !== "/login"
-          ? "bg-[#349aef] text-white hover:bg-[#349aef] transition-all"
+          ? "bg-[#349aef] text-white hover:bg-[#349aef]/90  transition-all"
           : "bg-transparent"
       }`}
     >

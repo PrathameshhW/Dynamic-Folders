@@ -1,3 +1,4 @@
+import "@mantine/charts/styles.css";
 import "@mantine/core/styles.css";
 import { lazy, StrictMode } from "react";
 import { createRoot } from "react-dom/client";
