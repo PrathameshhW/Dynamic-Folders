@@ -54,7 +54,12 @@ const RegisterPage = () => {
 
   const handleRegisterSubmit = async (formValues: IRegisterUser) => {
     try {
-      const newFormValues = { ...formValues } as Partial<IRegisterUser>;
+      const newFormValues = {
+        ...formValues,
+        email: formValues.email.trim(),
+        password: formValues.password.trim(),
+      } as Partial<IRegisterUser>;
+
       delete newFormValues.cpassword;
 
       const res = await RegisterUser(newFormValues);

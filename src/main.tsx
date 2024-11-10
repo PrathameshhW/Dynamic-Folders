@@ -7,7 +7,7 @@ import { envConfig } from "./Config/env.config.ts";
 import "./index.css";
 
 const TheConfigProvider = lazy(
-  () => import(`./peoples/${envConfig.orgName}/config/TheConfigProvider.tsx`)
+  () => import(`./peoples/${envConfig.orgName}/config/ThemeConfigProvider.tsx`)
 );
 
 createRoot(document.getElementById("app")!).render(

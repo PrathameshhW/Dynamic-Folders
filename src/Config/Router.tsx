@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DashboardPage from "../pages/dashboard/DashboardPage";
 import RegisterPage from "../pages/register/RegisterPage";
+import UsersPage from "../pages/user_list/UserListPage";
 import AuthWrapper from "./AuthWrapper";
 
 const LoginPage = lazy(() => import("../pages/login/LoginPage"));
@@ -22,8 +23,12 @@ export const Router = createBrowserRouter([
         element: <DashboardPage />,
         children: [
           {
-            path: "/dashboard1",
-            element: <div>Dashboard1</div>,
+            path: "/user_list",
+            element: <UsersPage />,
+          },
+          {
+            path: "/settings",
+            element: <div>Dashboard2</div>,
           },
         ],
       },

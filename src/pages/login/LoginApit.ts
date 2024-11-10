@@ -1,3 +1,4 @@
+import { APIS } from "../../Config/ApiConfig";
 import { BaseInstance } from "../../Config/BaseInstance";
 
 export interface LoginData {
@@ -10,6 +11,6 @@ export interface LoginData {
 }
 
 export const loginUser = async (): Promise<LoginData[]> => {
-  const res = await BaseInstance.get("/api/users");
+  const res = await BaseInstance.get(APIS.user);
   return res.data;
 };

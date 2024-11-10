@@ -1,3 +1,5 @@
 export const BaseUrl = import.meta.env.VITE_BASE_URL;
 
-const APIS = {};
+export const APIS = {
+  user: "/api/users",
+};

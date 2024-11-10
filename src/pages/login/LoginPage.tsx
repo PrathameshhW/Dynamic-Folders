@@ -1,4 +1,4 @@
-import { isNotEmpty, useForm } from "@mantine/form";
+import { isEmail, isNotEmpty, useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { lazy, useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -31,7 +31,7 @@ const LoginPage = () => {
     mode: "uncontrolled",
     initialValues: LoginFormInitialValues,
     validate: {
-      email: isNotEmpty("Email is required"),
+      email: isEmail("Please enter a valid email"),
       password: isNotEmpty("Password is required"),
     },
   });
@@ -50,6 +50,7 @@ const LoginPage = () => {
 
       if (!user) {
         toast.error("User not found");
+        setButtonLoading(false);
         return;
       }
 

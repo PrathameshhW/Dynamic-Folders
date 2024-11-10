@@ -1,3 +1,4 @@
+import { ModalsProvider } from "@mantine/modals";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { lazy, Suspense } from "react";
@@ -18,13 +19,16 @@ function App() {
     <>
       <Suspense fallback={<></>}>
         <QueryClientProvider client={queryClient}>
-          {isAuthRoute ? (
-            <RouterProvider router={Router} />
-          ) : (
-            <MainLayout>
+          <ModalsProvider>
+            {isAuthRoute ? (
               <RouterProvider router={Router} />
-            </MainLayout>
-          )}
+            ) : (
+              <MainLayout>
+                <RouterProvider router={Router} />
+              </MainLayout>
+            )}
+          </ModalsProvider>
+
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </Suspense>
