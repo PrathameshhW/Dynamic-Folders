@@ -1,5 +1,5 @@
 import { isEmail, isNotEmpty, useForm } from "@mantine/form";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { lazy, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -12,6 +12,7 @@ const AddEditUserLayout = lazy(
 );
 
 const AddEditUserPage = () => {
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
@@ -40,6 +41,9 @@ const AddEditUserPage = () => {
     {
       mutationKey: ["updateUser", id],
       mutationFn: (data: IAddEditUser) => updateUserById(id!, data),
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ["user-list"] });
+      },
     }
   );
 

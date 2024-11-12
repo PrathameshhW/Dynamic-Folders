@@ -15,6 +15,7 @@ const UsersPage = () => {
   const { data: userList, isLoading: userListFetching } = useQuery({
     queryKey: ["user-list"],
     queryFn: getUserList,
+    staleTime: 60000, // 60 seconds
   });
 
   const handleAddNewUserClick = () => {
